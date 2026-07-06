@@ -50,6 +50,7 @@ h1 {
 
 h2 { font-size: clamp(1.6rem, 2.2vw, 2.2rem); margin-bottom: 0.8rem; }
 h3 { font-size: 1.15rem; margin: 0 0 0.5rem; }
+.panel p { margin: 0; }
 
 .lead, p { color: #cbd5e1; }
 
