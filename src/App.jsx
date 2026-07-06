@@ -21,23 +21,34 @@ const projects = [
   {
     title: 'SmartOps Platform',
     description:
-      'Une plateforme de supervision intelligente combinant automatisation, analytics et agents IA pour accélérer la prise de décision.',
+      'Une plateforme de supervision intelligente combinant automatisation, analytics et agents IA pour accélérer la prise de décision opérationnelle.',
     stack: ['Azure', 'Python', 'Fabric', 'Power BI'],
-    result: 'Réduction du temps d’analyse et meilleure visibilité opérationnelle.',
+    result: 'Réduction du temps d’analyse et meilleure visibilité sur les KPIs métiers.',
+    accent: 'Pilotage intelligent',
   },
   {
     title: 'RAG Assistant',
     description:
-      'Assistant conversationnel basé sur un moteur RAG pour répondre à partir de documents métier avec un contexte fiable.',
+      'Assistant conversationnel basé sur un moteur RAG pour répondre à partir de documents métier avec un contexte fiable et traçable.',
     stack: ['Azure AI', 'Python', 'FAISS', 'Streamlit'],
-    result: 'Accélération de l’accès à l’information et meilleure qualité des réponses.',
+    result: 'Accélération de l’accès à l’information et amélioration de la qualité des réponses.',
+    accent: 'Recherche documentaire',
   },
   {
     title: 'Dashboard Intelligence',
     description:
-      'Tableau de bord analytique conçu pour suivre des KPI essentiels et transformer des données brutes en décisions.',
+      'Tableau de bord analytique conçu pour suivre des indicateurs clés, automatiser les rapports et transformer les données brutes en décisions.',
     stack: ['Power BI', 'SQL', 'Fabric'],
-    result: 'Visualisation claire et meilleure exploitation des indicateurs.',
+    result: 'Visualisation claire, reporting plus rapide et exploitation plus simple des données.',
+    accent: 'Business Intelligence',
+  },
+  {
+    title: 'Agents IA pour process',
+    description:
+      'Automatisation de workflows métier avec des agents IA capables d’orchestrer des tâches, d’enrichir des données et de réduire la friction opérationnelle.',
+    stack: ['LLM', 'Azure AI', 'Python', 'LangChain'],
+    result: 'Gain de productivité et réduction des tâches répétitives.',
+    accent: 'Automation',
   },
 ];
 
@@ -135,18 +146,43 @@ function App() {
         </section>
 
         <section id="projects" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-          <div className="mb-8">
-            <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Projets</p>
-            <h2 className="mt-3 text-3xl font-semibold">Des réalisations concrètes, orientées impact</h2>
+          <div className="mb-8 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Projets</p>
+              <h2 className="mt-3 text-3xl font-semibold">Des réalisations concrètes, orientées impact</h2>
+            </div>
+            <p className="max-w-2xl text-slate-300">
+              Chaque projet combine données, automatisation et IA pour créer des solutions utiles, scalables et rapidement adoptables.
+            </p>
           </div>
-          <div className="grid gap-6 lg:grid-cols-3">
+
+          <div className="mb-8 rounded-3xl border border-cyan-500/20 bg-cyan-500/10 p-6 lg:p-8">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <p className="text-sm uppercase tracking-[0.3em] text-cyan-300">Projet phare</p>
+                <h3 className="mt-2 text-2xl font-semibold">SmartOps Platform</h3>
+                <p className="mt-3 max-w-2xl text-slate-300">
+                  Une expérience de supervision et d’analytique pensée pour aider les équipes à piloter plus vite, avec une vraie visibilité sur leurs opérations.
+                </p>
+              </div>
+              <a href="#contact" className="rounded-full border border-cyan-400/40 px-4 py-2 text-sm font-medium text-cyan-200 transition hover:bg-cyan-400/10">
+                Discuter de ce projet
+              </a>
+            </div>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
             {projects.map((project) => (
-              <article key={project.title} className="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
-                <h3 className="text-xl font-semibold">{project.title}</h3>
+              <article key={project.title} className="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-lg shadow-slate-950/20">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="rounded-full bg-cyan-500/10 px-3 py-1 text-sm text-cyan-300">{project.accent}</span>
+                  <span className="text-sm text-slate-500">Cas d’usage</span>
+                </div>
+                <h3 className="mt-4 text-xl font-semibold">{project.title}</h3>
                 <p className="mt-4 text-slate-300">{project.description}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {project.stack.map((tech) => (
-                    <span key={tech} className="rounded-full bg-cyan-500/10 px-3 py-1 text-sm text-cyan-300">
+                    <span key={tech} className="rounded-full bg-slate-800 px-3 py-1 text-sm text-slate-300">
                       {tech}
                     </span>
                   ))}
