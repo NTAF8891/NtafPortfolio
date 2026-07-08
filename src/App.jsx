@@ -87,7 +87,7 @@ function App() {
               <a href="#projects" className="rounded-full bg-cyan-500 px-5 py-3 font-medium text-slate-950 transition hover:bg-cyan-400">
                 Voir mes projets
               </a>
-              <a href="#contact" className="rounded-full border border-slate-700 px-5 py-3 font-medium transition hover:border-cyan-400 hover:text-cyan-300">
+              <a href="/cv-arthur.pdf" download className="rounded-full border border-slate-700 px-5 py-3 font-medium transition hover:border-cyan-400 hover:text-cyan-300">
                 Télécharger mon CV
               </a>
             </div>
@@ -256,7 +256,7 @@ function App() {
               <a href="mailto:arthur@example.com" className="rounded-full bg-cyan-500 px-5 py-3 font-medium text-slate-950 transition hover:bg-cyan-400">
                 Me contacter
               </a>
-              <a href="#" className="rounded-full border border-slate-700 px-5 py-3 font-medium transition hover:border-cyan-400 hover:text-cyan-300">
+              <a href="/profil-technique-arthur-nemangou.pdf" download className="rounded-full border border-slate-700 px-5 py-3 font-medium transition hover:border-cyan-400 hover:text-cyan-300">
                 Télécharger mon profil technique
               </a>
             </div>

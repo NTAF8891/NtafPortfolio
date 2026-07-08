@@ -1,31 +1,34 @@
 # Portfolio Arthur Nemangou
 
-Ce dossier contient un portfolio professionnel prêt à être envoyé sur GitHub et à ouvrir sur n'importe quel ordinateur.
+Portfolio professionnel construit avec React, Vite et Tailwind CSS.
 
-## Ce que vous avez
+## Contenu
 
-- une page d'accueil moderne
-- une section À propos
-- des compétences par domaine
-- des projets phares
-- une section IA
-- une section contact
+- page d'accueil moderne
+- section A propos
+- competences par domaine
+- projets phares
+- section IA
+- blog technique
+- contact et telechargement du CV
 
-## Comment l'utiliser
-
-Aucun logiciel supplémentaire n'est requis pour l'afficher : il suffit d'ouvrir le fichier index.html dans votre navigateur.
-
-## Publier sur GitHub
+## Developpement
 
 ```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/<votre-username>/<votre-repo>.git
-git push -u origin main
+npm install
+npm run dev
 ```
 
-## Déploiement
+Le serveur local demarre sur `http://localhost:3000`.
 
-Vous pouvez ensuite déployer ce site sur GitHub Pages, Vercel ou Netlify.
+## Build
+
+```bash
+npm run build
+```
+
+Les fichiers prets a deployer sont generes dans `dist`.
+
+## Deploiement
+
+Ce portfolio peut etre deploye sur Vercel, Netlify ou GitHub Pages.
