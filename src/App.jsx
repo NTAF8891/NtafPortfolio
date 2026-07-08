@@ -30,7 +30,7 @@ const projects = [
     title: 'RAG Assistant',
     description:
       'Assistant conversationnel basé sur un moteur RAG pour répondre à partir de documents métier avec un contexte fiable et traçable.',
-    stack: ['Azure AI', 'Python', 'FAISS', 'Streamlit'],
+    stack: ['Azure AI', 'Python', 'Streamlit'],
     result: 'Accélération de l’accès à l’information et amélioration de la qualité des réponses.',
     accent: 'Recherche documentaire',
   },
@@ -38,7 +38,7 @@ const projects = [
     title: 'Dashboard Intelligence',
     description:
       'Tableau de bord analytique conçu pour suivre des indicateurs clés, automatiser les rapports et transformer les données brutes en décisions.',
-    stack: ['Power BI', 'SQL', 'Fabric'],
+    stack: ['Power BI', 'SQL','Python', 'Fabric'],
     result: 'Visualisation claire, reporting plus rapide et exploitation plus simple des données.',
     accent: 'Business Intelligence',
   },
@@ -51,8 +51,6 @@ const projects = [
     accent: 'Automation',
   },
 ];
-
-const certifications = ['Microsoft Azure AI Fundamentals', 'Microsoft Power BI Data Analyst', 'AI-900', 'PL-300'];
 
 function App() {
   return (
@@ -213,20 +211,6 @@ function App() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-          <div className="mb-8">
-            <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Certifications</p>
-            <h2 className="mt-3 text-3xl font-semibold">Compétences validées</h2>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            {certifications.map((cert) => (
-              <span key={cert} className="rounded-full border border-slate-700 bg-slate-900/70 px-4 py-2 text-slate-300">
-                {cert}
-              </span>
-            ))}
-          </div>
-        </section>
-
         <section id="blog" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
           <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-8">
             <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Blog IA</p>
@@ -239,7 +223,7 @@ function App() {
                 <h3 className="font-semibold">Pourquoi Microsoft Fabric change la data</h3>
               </div>
               <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-5">
-                <h3 className="font-semibold">Utiliser ChatGPT efficacement pour développer</h3>
+                <h3 className="font-semibold">Utiliser IA efficacement pour développer</h3>
               </div>
             </div>
           </div>
@@ -253,7 +237,7 @@ function App() {
               Je suis ouvert aux opportunités en data, intelligence artificielle et développement cloud.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-4">
-              <a href="mailto:arthur@example.com" className="rounded-full bg-cyan-500 px-5 py-3 font-medium text-slate-950 transition hover:bg-cyan-400">
+              <a href="mailto:arthurnemangou@gmail.com" className="rounded-full bg-cyan-500 px-5 py-3 font-medium text-slate-950 transition hover:bg-cyan-400">
                 Me contacter
               </a>
               <a href="/profil-technique-arthur-nemangou.pdf" download className="rounded-full border border-slate-700 px-5 py-3 font-medium transition hover:border-cyan-400 hover:text-cyan-300">
