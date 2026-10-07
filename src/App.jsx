@@ -64,7 +64,7 @@ function App() {
       <header className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
         <div>
           <p className="text-2xl font-semibold tracking-tight">Arthur Nemangou</p>
-          <p className="text-sm text-slate-400">AI & Data Engineer</p>
+          <p className="text-sm text-slate-400">Data Analyst | BI Developer</p>
         </div>
         <button
           type="button"
