@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const skills = [
   {
     title: 'IA & LLM',
@@ -23,7 +25,7 @@ const projects = [
     description:
       'Une plateforme de supervision intelligente combinant automatisation, analytics et agents IA pour accélérer la prise de décision opérationnelle.',
     stack: ['Azure', 'Python', 'Fabric', 'Power BI'],
-    result: 'Réduction du temps d’analyse et meilleure visibilité sur les KPIs métiers.',
+    result: 'Faciliter le suivi des indicateurs et la prise de décision opérationnelle.',
     accent: 'Pilotage intelligent',
   },
   {
@@ -31,7 +33,7 @@ const projects = [
     description:
       'Assistant conversationnel basé sur un moteur RAG pour répondre à partir de documents métier avec un contexte fiable et traçable.',
     stack: ['Azure AI', 'Python', 'Streamlit'],
-    result: 'Accélération de l’accès à l’information et amélioration de la qualité des réponses.',
+    result: 'Retrouver plus facilement des informations pertinentes dans des documents métier.',
     accent: 'Recherche documentaire',
   },
   {
@@ -39,7 +41,7 @@ const projects = [
     description:
       'Tableau de bord analytique conçu pour suivre des indicateurs clés, automatiser les rapports et transformer les données brutes en décisions.',
     stack: ['Power BI', 'SQL','Python', 'Fabric'],
-    result: 'Visualisation claire, reporting plus rapide et exploitation plus simple des données.',
+    result: 'Rendre les indicateurs plus lisibles et simplifier le suivi de l’activité.',
     accent: 'Business Intelligence',
   },
   {
@@ -47,26 +49,48 @@ const projects = [
     description:
       'Automatisation de workflows métier avec des agents IA capables d’orchestrer des tâches, d’enrichir des données et de réduire la friction opérationnelle.',
     stack: ['LLM', 'Azure AI', 'Python', 'LangChain'],
-    result: 'Gain de productivité et réduction des tâches répétitives.',
+    result: 'Automatiser certaines tâches répétitives dans des workflows métier.',
     accent: 'Automation',
   },
 ];
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
-      <header className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
+      <header className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
         <div>
           <p className="text-2xl font-semibold tracking-tight">Arthur Nemangou</p>
           <p className="text-sm text-slate-400">AI & Data Engineer</p>
         </div>
-        <nav className="hidden gap-6 text-sm md:flex">
+        <button
+          type="button"
+          className="rounded-lg border border-slate-700 px-3 py-2 text-sm md:hidden"
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setIsMenuOpen((open) => !open)}
+        >
+          {isMenuOpen ? 'Fermer' : 'Menu'}
+        </button>
+        <nav className="hidden gap-6 text-sm md:flex" aria-label="Navigation principale">
           <a href="#about" className="transition hover:text-cyan-400">À propos</a>
           <a href="#skills" className="transition hover:text-cyan-400">Compétences</a>
           <a href="#projects" className="transition hover:text-cyan-400">Projets</a>
           <a href="#blog" className="transition hover:text-cyan-400">Blog</a>
           <a href="#contact" className="transition hover:text-cyan-400">Contact</a>
         </nav>
+        {isMenuOpen && (
+          <nav id="mobile-navigation" className="absolute left-0 right-0 top-full z-10 grid gap-1 border-y border-slate-800 bg-slate-950 px-6 py-3 text-sm md:hidden" aria-label="Navigation mobile">
+            <a href="#about" onClick={closeMenu} className="rounded-lg px-3 py-3 hover:bg-slate-900">À propos</a>
+            <a href="#skills" onClick={closeMenu} className="rounded-lg px-3 py-3 hover:bg-slate-900">Compétences</a>
+            <a href="#projects" onClick={closeMenu} className="rounded-lg px-3 py-3 hover:bg-slate-900">Projets</a>
+            <a href="#blog" onClick={closeMenu} className="rounded-lg px-3 py-3 hover:bg-slate-900">Blog</a>
+            <a href="#contact" onClick={closeMenu} className="rounded-lg px-3 py-3 hover:bg-slate-900">Contact</a>
+          </nav>
+        )}
       </header>
 
       <main>
@@ -99,12 +123,12 @@ function App() {
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-4">
-                <p className="text-2xl font-semibold text-cyan-400">8+</p>
-                <p className="text-sm text-slate-400">compétences clés</p>
+                <p className="text-2xl font-semibold text-cyan-400">{skills.reduce((total, group) => total + group.items.length, 0)}</p>
+                <p className="text-sm text-slate-400">compétences listées</p>
               </div>
               <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-4">
-                <p className="text-2xl font-semibold text-cyan-400">3</p>
-                <p className="text-sm text-slate-400">projets phares</p>
+                <p className="text-2xl font-semibold text-cyan-400">{projects.length}</p>
+                <p className="text-sm text-slate-400">cas d’usage présentés</p>
               </div>
             </div>
           </div>
@@ -146,25 +170,25 @@ function App() {
         <section id="projects" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
           <div className="mb-8 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Projets</p>
-              <h2 className="mt-3 text-3xl font-semibold">Des réalisations concrètes, orientées impact</h2>
+              <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Projets & cas d’usage</p>
+              <h2 className="mt-3 text-3xl font-semibold">Des idées de solutions autour de la data et de l’IA</h2>
             </div>
             <p className="max-w-2xl text-slate-300">
-              Chaque projet combine données, automatisation et IA pour créer des solutions utiles, scalables et rapidement adoptables.
+              Voici des exemples de cas d’usage. Ajoute pour chacun un lien, ton rôle et les résultats réels pour en faire des projets de portfolio complets.
             </p>
           </div>
 
           <div className="mb-8 rounded-3xl border border-cyan-500/20 bg-cyan-500/10 p-6 lg:p-8">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
-                <p className="text-sm uppercase tracking-[0.3em] text-cyan-300">Projet phare</p>
+                <p className="text-sm uppercase tracking-[0.3em] text-cyan-300">Exemple de cas d’usage</p>
                 <h3 className="mt-2 text-2xl font-semibold">SmartOps Platform</h3>
                 <p className="mt-3 max-w-2xl text-slate-300">
-                  Une expérience de supervision et d’analytique pensée pour aider les équipes à piloter plus vite, avec une vraie visibilité sur leurs opérations.
+                  Concept de plateforme de supervision qui réunirait automatisation, indicateurs métier et assistance par IA.
                 </p>
               </div>
               <a href="#contact" className="rounded-full border border-cyan-400/40 px-4 py-2 text-sm font-medium text-cyan-200 transition hover:bg-cyan-400/10">
-                Discuter de ce projet
+                Me contacter
               </a>
             </div>
           </div>
@@ -185,7 +209,7 @@ function App() {
                     </span>
                   ))}
                 </div>
-                <p className="mt-5 text-sm text-slate-400">Résultat : {project.result}</p>
+                <p className="mt-5 text-sm text-slate-400">Objectif envisagé : {project.result}</p>
               </article>
             ))}
           </div>
@@ -214,7 +238,8 @@ function App() {
         <section id="blog" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
           <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-8">
             <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Blog IA</p>
-            <h2 className="mt-3 text-3xl font-semibold">Articles techniques et réflexions</h2>
+            <h2 className="mt-3 text-3xl font-semibold">Sujets que je souhaite partager</h2>
+            <p className="mt-3 text-slate-300">Idées d’articles à remplacer par des publications réelles lorsqu’elles seront disponibles.</p>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-5">
                 <h3 className="font-semibold">Construire un RAG avec Azure AI Foundry</h3>
